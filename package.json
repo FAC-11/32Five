@@ -1,0 +1,25 @@
+{
+  "name": "3to5",
+  "version": "1.0.0",
+  "description": "_The best travel/weather app ever conceived?!?!_",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js | tap-spec",
+    "coverage": "istanbul cover tape test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAC-11/3To5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAC-11/3To5/issues"
+  },
+  "homepage": "https://github.com/FAC-11/3To5#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.7.0"
+  }
+}
