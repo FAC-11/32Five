@@ -4,7 +4,7 @@
   "description": "_The best travel/weather app ever conceived?!?!_",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js | tap-spec",
+    "test": "node test/test.js | tap-spec",
     "coverage": "istanbul cover tape test/*.test.js"
   },
   "repository": {
