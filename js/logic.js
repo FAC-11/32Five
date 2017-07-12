@@ -12,10 +12,9 @@ function request(url, callback) {
 
 function getWeather(postcode, callback) {
   var shortPostcode = postcode.slice(0, -3);
-  var apiKey = '41124e48afff080e2d24c84ad4697897';
   var url = 'http://api.openweathermap.org/data/2.5/weather?zip=';
   url += shortPostcode + ',GB';
-  url += '&appid=' + apiKey;
+  url += '&appid=' + weatherApiKey;
 
   request(url, callback);
 }
