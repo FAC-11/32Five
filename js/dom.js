@@ -40,7 +40,7 @@ window.onload = function() {
   postcodeSubmit.addEventListener("click", function(event){
     event.preventDefault();
     var postcodeInput = document.querySelector(".postcode__input").value;
-    getWeather(postcodeInput, function(response){
+    logic.getWeather(postcodeInput, function(response){
       console.log(response);
 
 
