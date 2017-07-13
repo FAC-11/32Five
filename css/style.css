@@ -1,17 +1,47 @@
-/*color pallette:
-HEX
-#bffde6
-#fdbfd6
-#60d8ab
-#d8608d
-#ab4e6b
-#4eab8e
-*/
-
-body {
-    background: #edf0f1;
+* {
+    box-sizing: border-box;
 }
+h1, h2, h3 {
+    color: darkslategrey;
+}
+header {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+body {
+    background-color: #F3FFDA;
+    font-size: 1.5rem;
+}
+form {
+    display: flex;
+}
+.postcode__submit {
+    border: none;
+    background-color: #4eab8e;
+    color: #fff;
+    border-radius: 5px;
+    height: 3rem;
+}
+.postcode__input {
+    height: 3rem;
+    font-size: 1.5rem;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 0.2em;
+    border: none;
 
+}
+.summary {
+    padding: 1rem;
+    text-align: center;
+}
+.summary__item {
+    margin: 1rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid lightgrey;
+    line-height: 3rem;
+}
 #summary-container{
     width: 100%;
     float: left;
@@ -26,7 +56,7 @@ body {
     float: left;
 }
 
-ul {
+ul, .summary {
     width: 100%;
     float: left;
     padding:0 25px 0 25px;
