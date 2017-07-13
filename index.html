@@ -7,6 +7,7 @@
     <title> FACcy Mapper</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
 
 </head>
 <body>
@@ -29,11 +30,18 @@
 <div id="array">
 </div>
 
-<section>
+<section id="js-summary" class="summary">
     <h2>Summary</h2>
-    <div id = "summary-container">
-        <ul>
-        </ul>
+    <div id="js-duration" class="summary__duration">
+    </div>
+    <div id="js-modes" class="summary__modes">
+    </div>
+    <div id="js-weather" class="summary__weather">
+      <div id="js-weather__temp">
+      </div>
+      <div id="js-weather__description">
+        <i class="wi" id="js-weather__icon"></i>
+      </div>
     </div>
 </section>
 
