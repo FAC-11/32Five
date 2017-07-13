@@ -92,4 +92,10 @@ var logic = {
     return postcode.trim().slice(0, -3).trim();
   }
 };
-module.exports = (logic);
+
+
+
+if (typeof module !== 'undefined') {
+  module.exports = (logic);
+
+}
