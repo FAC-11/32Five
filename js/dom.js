@@ -3,10 +3,16 @@ var summaryContainer = document.getElementById('js-summary');
 var detailsContainer = document.getElementById("details-container");
 var infoContainer = document.getElementById("map-container");
 var transportIcons = {
-    'walking':"hello",
-    'bus':"hello",
-    'national-rail':"hello",
-    'tube': "hello"
+    'walking':"./img/walk.svg",
+    'bus':"./img/bus.svg",
+    'national-rail':"./img/NationalRail.svg",
+    'tube': "./img/tube.svg",
+    'cycle':"./img/bike.svg",
+    'car':"./img/car.svg",
+    'tram':"./img/tram.svg",
+    'river':"./img/river-bus.svg",
+    'overground':"./img/overground.svg",
+    'dlr':"./img/DLR.svg",
 
 };
 
@@ -27,15 +33,21 @@ document.querySelector(".postcode__submit").addEventListener('click', function(e
 
 var travelCallback = function(response){
 
-
-    var mode = "";
+    var mode = [];
     response.journeys[0].legs.forEach(function(leg){
-      mode += leg.mode.name + ' ';
-    })
+      mode.push(leg.mode.name);
+    });
+
+
   var summaryDurationNode = document.getElementById('js-duration');
   var summaryModeNode = document.getElementById('js-modes');
   var summaryArrivalNode = document.getElementById('js-arrival');
-  summaryModeNode.textContent = mode;
+  summaryModeNode.textContent = "Modes: "
+    mode.forEach(function (x) {
+      var icon = document.createElement('img');
+      icon.src =transportIcons[x];
+       summaryModeNode.appendChild(icon);
+      });
   summaryDurationNode.textContent = "Total duration: " + response.journeys[0].duration + ' minutes';
     summaryArrivalNode.textContent = "Arrival Time: " + response.journeys[0].arrivalDateTime;
 
@@ -50,8 +62,10 @@ var travelCallback = function(response){
       var detailsSpan1 = document.createElement('span');
       detailsSpan1.textContent = "Duration: " + leg.duration;
       var detailsSpan2 = document.createElement('span');
-
-      detailsSpan2.textContent = "Mode: " + leg.mode.name;
+      var iconDetail = document.createElement('img');
+      iconDetail.src = transportIcons[leg.mode.name];
+      detailsSpan2.textContent = "Mode: " ;
+      detailsSpan2.appendChild(iconDetail);
       var detailsSpan3 = document.createElement('span');
       detailsSpan3.textContent = "Instructions: " + leg.instruction.summary
       detailsListNode1.appendChild(detailsSpan1);

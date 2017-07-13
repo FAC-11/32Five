@@ -85,4 +85,9 @@ weatherIcons: {
         return  kelvin - 273.15;
     }
 };
-module.exports=(logic);
+
+
+if(typeof module !== 'undefined'){
+    module.exports = (logic);
+
+}

@@ -45,3 +45,8 @@ body {
     word-break: break-word;
     box-sizing: border-box;
 }
+
+img{
+    height:50px;
+    width:50px;
+}
