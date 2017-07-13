@@ -40,33 +40,46 @@ var travelCallback = function(response) {
   var summaryDurationNode = document.getElementById('js-duration');
   var summaryModeNode = document.getElementById('js-modes');
   var summaryArrivalNode = document.getElementById('js-arrival');
-  summaryModeNode.textContent = mode;
+
+  summaryModeNode.textContent = "Modes: ";
+  mode.forEach(function(x) {
+    var icon = document.createElement('img');
+    icon.src = transportIcons[x];
+    summaryModeNode.appendChild(icon);
+  });
   summaryDurationNode.textContent = response.journeys[0].duration + ' minutes';
-    summaryArrivalNode.textContent = "You'll arrive at " + response.journeys[0].arrivalDateTime;
+      var datefunc = response.journeys[0].arrivalDateTime.split('T')[1];
 
-    detailsContainer.innerHTML = "";
-    response.journeys[0].legs.forEach(function(leg){
-      var detailsNode = document.createElement('ul');
-      var detailsListNode1 = document.createElement('li');
-      var detailsListNode2 = document.createElement('li');
-      var detailsListNode3 = document.createElement('li');
-      var detailsSpan1 = document.createElement('span');
-      detailsSpan1.textContent = "Duration: " + leg.duration;
-      var detailsSpan2 = document.createElement('span');
-      detailsSpan2.textContent = "Mode: " + leg.mode.name;
-      var detailsSpan3 = document.createElement('span');
-      detailsSpan3.textContent = "Instructions: " + leg.instruction.summary
-      detailsListNode1.appendChild(detailsSpan1);
-      detailsListNode2.appendChild(detailsSpan2);
-      detailsListNode3.appendChild(detailsSpan3);
-
-      detailsNode.appendChild(detailsListNode1);
-      detailsNode.appendChild(detailsListNode2);
-      detailsNode.appendChild(detailsListNode3);
-      detailsContainer.appendChild(detailsNode);
+    summaryArrivalNode.textContent = "You'll arrive at " + datefunc;
 
 
-   })
+  detailsContainer.innerHTML = "";
+  response.journeys[0].legs.forEach(function(leg) {
+    //  console.log(leg);
+    var detailsNode = document.createElement('ul');
+    var detailsListNode1 = document.createElement('li');
+    var detailsListNode2 = document.createElement('li');
+    var detailsListNode3 = document.createElement('li');
+    var detailsSpan1 = document.createElement('span');
+    detailsSpan1.textContent = "Duration: " + leg.duration + " min(s)";
+    var detailsSpan2 = document.createElement('span');
+    var iconDetail = document.createElement('img');
+    iconDetail.src = transportIcons[leg.mode.name];
+    detailsSpan2.appendChild(iconDetail);
+    var detailsSpan3 = document.createElement('span');
+    detailsSpan3.textContent = "Instructions:" + leg.instruction.summary;
+    detailsListNode1.appendChild(detailsSpan1);
+    detailsListNode2.appendChild(detailsSpan2);
+    detailsListNode3.appendChild(detailsSpan3);
+
+
+    detailsNode.appendChild(detailsListNode1);
+    detailsNode.appendChild(detailsListNode2);
+    detailsNode.appendChild(detailsListNode3);
+    detailsContainer.appendChild(detailsNode);
+
+
+  })
 };
 
 
