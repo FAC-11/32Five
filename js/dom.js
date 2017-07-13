@@ -31,8 +31,34 @@ var travelCallback = function(response){
     summaryNode.appendChild(summaryListNode2);
     summaryNode.appendChild(summaryListNode3);
     summaryContainer.replaceChild(summaryNode,summaryContainer.firstChild);
-    console.log(response);
+  //  console.log(response);
+
+    detailsContainer.innerHTML = "";
+    response.journeys[0].legs.forEach(function(leg){
+    //  console.log(leg);
+      var detailsNode = document.createElement('ul');
+      var detailsListNode1 = document.createElement('li');
+      var detailsListNode2 = document.createElement('li');
+      var detailsListNode3 = document.createElement('li');
+      var detailsSpan1 = document.createElement('span');
+      detailsSpan1.textContent = "Duration: " + leg.duration;
+      var detailsSpan2 = document.createElement('span');
+      detailsSpan2.textContent = "Mode: " + leg.mode.name;
+      var detailsSpan3 = document.createElement('span');
+      detailsSpan3.textContent = "Instructions: " + leg.instruction.summary
+      detailsListNode1.appendChild(detailsSpan1);
+      detailsListNode2.appendChild(detailsSpan2);
+      detailsListNode3.appendChild(detailsSpan3);
+
+      detailsNode.appendChild(detailsListNode1);
+      detailsNode.appendChild(detailsListNode2);
+      detailsNode.appendChild(detailsListNode3);
+      detailsContainer.appendChild(detailsNode);
+
+
+   })
 };
+
 
 //weather changes
 window.onload = function() {
