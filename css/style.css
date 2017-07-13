@@ -15,6 +15,8 @@ body {
 }
 form {
     display: flex;
+    box-sizing: border-box;
+    padding: 0 50px 0 50px;
 }
 .postcode__submit {
     border: none;
@@ -56,7 +58,7 @@ form {
     float: left;
 }
 
-ul, .summary {
+#details-container ul, .summary {
     width: 100%;
     float: left;
     padding:0 25px 0 25px;
@@ -70,7 +72,7 @@ ul, .summary {
 
 }
 
-ul li {
+#details-container ul li {
     width: 100%;
     min-height: 50px;
     float: left;
@@ -82,4 +84,10 @@ ul li {
     padding: 14px 100px 14px 14px;
     word-break: break-word;
     box-sizing: border-box;
+}
+
+
+img {
+    height: 50px;
+    width: 50px;
 }

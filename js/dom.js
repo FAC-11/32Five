@@ -2,21 +2,41 @@
 var summaryContainer = document.getElementById('js-summary');
 var detailsContainer = document.getElementById("details-container");
 var infoContainer = document.getElementById("map-container");
+var transportIcons = {
+  'walking': "./img/walk.svg",
+  'bus': "./img/bus.svg",
+  'national-rail': "./img/NationalRail.svg",
+  'tube': "./img/tube.svg",
+  'cycle': "./img/bike.svg",
+  'car': "./img/car.svg",
+  'tram': "./img/tram.svg",
+  'river': "./img/river-bus.svg",
+  'overground': "./img/overground.svg",
+  'dlr': "./img/DLR.svg",
 
+};
 
 // Add postcode and run events
-document.querySelector(".postcode__submit").addEventListener('click', function(e){
-    e.preventDefault();
-    var postcode = document.querySelector(".postcode__input").value;
+document.querySelector(".postcode__submit").addEventListener('click', function(e) {
+  e.preventDefault();
+  var postcode = document.querySelector(".postcode__input").value;
+  if (postcode) {
     logic.getTravel(postcode, travelCallback);
+    logic.getWeather(postcode, function(response) {
+      //console.log(response);
+      weatherCallback(response);
+    });
+  }
 });
 
-var travelCallback = function(response){
+var travelCallback = function(response) {
 
-    var mode = "";
-    response.journeys[0].legs.forEach(function(leg){
-      mode += leg.mode.name + ' ';
-    })
+
+  var mode = [];
+  response.journeys[0].legs.forEach(function(leg) {
+    mode.push(leg.mode.name);
+  });
+
   var summaryDurationNode = document.getElementById('js-duration');
   var summaryModeNode = document.getElementById('js-modes');
   var summaryArrivalNode = document.getElementById('js-arrival');
