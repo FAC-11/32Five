@@ -20,6 +20,18 @@ var logic = {
         logic.request(url, callback);
     },
 
+// icons for weather types
+weatherIcons: {
+"clear sky": "wi-night-sleet",
+"few clouds": "wi-day-sunny-overcast",
+"scattered clouds": "wi-day-cloudy",
+"broken clouds": "wi-cloudy",
+"shower rain": "wi-showers",
+"rain": "wi-rain",
+"thunderstorm": "wi-thunderstorm",
+"snow":"wi-snowflake-cold",
+"mist": "wi-fog",
+},
 
     getTravel: function(postcode,callback){
         var url = 'https://api.tfl.gov.uk/Journey/JourneyResults/';
