@@ -26,33 +26,19 @@ document.querySelector(".postcode__submit").addEventListener('click', function(e
 });
 
 var travelCallback = function(response){
-    var summaryNode = document.createElement('ul');
-    var summaryListNode1 = document.createElement('li');
-    var summaryListNode2 = document.createElement('li');
-    var summaryListNode3 = document.createElement('li');
-    var summaryListNode4 = document.createElement('li');
-    var summarySpan1 = document.createElement('span');
-    summarySpan1.textContent = "Total duration: " + response.journeys[0].duration;
-    var summarySpan2 = document.createElement('span');
 
-    var mode = [];
 
-    summarySpan2.textContent = "Mode(s): " + mode;
-    var summarySpan3 = document.createElement('span');
-    summarySpan3.textContent = "Weather: ";
-    var summarySpan4 = document.createElement('span');
-    summarySpan4.textContent = "Arrival Time: " + response.journeys[0].arrivalDateTime;
-    summaryListNode1.appendChild(summarySpan1);
-    summaryListNode2.appendChild(summarySpan2);
-    summaryListNode3.appendChild(summarySpan3);
-    summaryListNode4.appendChild(summarySpan4);
+    var mode = "";
+    response.journeys[0].legs.forEach(function(leg){
+      mode += leg.mode.name + ' ';
+    })
+  var summaryDurationNode = document.getElementById('js-duration');
+  var summaryModeNode = document.getElementById('js-modes');
+  var summaryArrivalNode = document.getElementById('js-arrival');
+  summaryModeNode.textContent = mode;
+  summaryDurationNode.textContent = "Total duration: " + response.journeys[0].duration + ' minutes';
+    summaryArrivalNode.textContent = "Arrival Time: " + response.journeys[0].arrivalDateTime;
 
-    summaryNode.appendChild(summaryListNode1);
-    summaryNode.appendChild(summaryListNode2);
-    summaryNode.appendChild(summaryListNode3);
-    summaryNode.appendChild(summaryListNode4);
-    summaryContainer.replaceChild(summaryNode,summaryContainer.firstChild);
-  //  console.log(response);
 
     detailsContainer.innerHTML = "";
     response.journeys[0].legs.forEach(function(leg){
