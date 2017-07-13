@@ -1,5 +1,5 @@
 //travel changes
-var summaryContainer = document.getElementById("summary-container");
+var summaryContainer = document.getElementById('js-summary');
 var detailsContainer = document.getElementById("details-container");
 var infoContainer = document.getElementById("map-container");
 
@@ -20,9 +20,9 @@ var travelCallback = function(response){
     var summarySpan1 = document.createElement('span');
     summarySpan1.textContent = "Total duration: " + response.journeys[0].duration;
     var summarySpan2 = document.createElement('span');
-    summarySpan2.textContent = "Start Date & Time: " + response.journeys[0].startDateTime;
+    summarySpan2.textContent = "Modes" + response.journeys[0].startDateTime;
     var summarySpan3 = document.createElement('span');
-    summarySpan3.textContent = "Arrival Date & Time: " + response.journeys[0].arrivalDateTime;
+    summarySpan3.textContent = "Weather";
     summaryListNode1.appendChild(summarySpan1);
     summaryListNode2.appendChild(summarySpan2);
     summaryListNode3.appendChild(summarySpan3);
@@ -41,9 +41,17 @@ window.onload = function() {
     event.preventDefault();
     var postcodeInput = document.querySelector(".postcode__input").value;
     logic.getWeather(postcodeInput, function(response){
-      console.log(response);
-
-
+      //console.log(response);
+      weatherCallback(response);
       })
     })
   };
+
+var weatherCallback = function(response) {
+  var weatherTempNode = document.getElementById('js-weather__temp');
+  var weatherDescriptionNode = document.getElementById('js-weather__description');
+
+  var temp = logic.kToC(response.main.temp);
+  weatherTempNode.textContent = Math.round(temp);
+  
+};
