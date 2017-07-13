@@ -41,6 +41,28 @@ weatherIcons: {
 "13n":"wi-snowflake-cold",
 "50n": "wi-night-fog"
 },
+weatherSuggestions: {
+"01d": "sunnies",
+"02d": "sunnies",
+"03d": "vitamin D supplements",
+"04d": "vitamin D supplements",
+"09d": "brolly",
+"10d": "brolly",
+"11d": "raincoat",
+"13d": "mittens",
+"50d": "torch",
+"01n": "telescope",
+"02n": "telescope",
+"03n": "vitamin D supplements",
+"04n": "vitamin D supplements",
+"09n": "brolly",
+"10n": "brolly",
+"11n": "raincoat",
+"13n": "mittens",
+"50n": "torch"
+},
+
+
 
     getTravel: function(postcode,callback){
         var url = 'https://api.tfl.gov.uk/Journey/JourneyResults/';
