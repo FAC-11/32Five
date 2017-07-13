@@ -2,6 +2,7 @@ body {
     background: #edf0f1;
     box-sizing: border-box;
     padding: 0 50px 0 50px;
+    font-family: 'Hammersmith One', sans-serif;
 }
 
 #summary-container{
@@ -19,6 +20,9 @@ body {
 }
 
 #details-container ul {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
     width: 100%;
     float: left;
     padding:0 25px 0 25px;
@@ -50,4 +54,5 @@ body {
 img {
     height: 50px;
     width: 50px;
+    text-align: center;
 }

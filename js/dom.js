@@ -50,7 +50,9 @@ var travelCallback = function(response) {
     summaryModeNode.appendChild(icon);
   });
   summaryDurationNode.textContent = "Total duration: " + response.journeys[0].duration + ' minutes';
-  summaryArrivalNode.textContent = "Arrival Time: " + response.journeys[0].arrivalDateTime;
+      var datefunc = response.journeys[0].arrivalDateTime.split('T')[1];
+
+    summaryArrivalNode.textContent = "Arrival Time: " + datefunc;
 
 
   detailsContainer.innerHTML = "";
@@ -61,14 +63,13 @@ var travelCallback = function(response) {
     var detailsListNode2 = document.createElement('li');
     var detailsListNode3 = document.createElement('li');
     var detailsSpan1 = document.createElement('span');
-    detailsSpan1.textContent = "Duration: " + leg.duration;
+    detailsSpan1.textContent = "Duration: " + leg.duration + " min(s)";
     var detailsSpan2 = document.createElement('span');
     var iconDetail = document.createElement('img');
     iconDetail.src = transportIcons[leg.mode.name];
-    detailsSpan2.textContent = "Mode: ";
     detailsSpan2.appendChild(iconDetail);
     var detailsSpan3 = document.createElement('span');
-    detailsSpan3.textContent = "Instructions: " + leg.instruction.summary;
+    detailsSpan3.textContent = "Instructions:" + leg.instruction.summary;
     detailsListNode1.appendChild(detailsSpan1);
     detailsListNode2.appendChild(detailsSpan2);
     detailsListNode3.appendChild(detailsSpan3);
