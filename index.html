@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> FACcy Mapper</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> FACcy Mapper</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
 
 </head>
+
 <body>
-<header>
+  <header>
     <div class="header-name">
-        <h1>Your Journey</h1>
+      <h1>Your Journey</h1>
     </div>
     <div class="header-add">
-        <form id="add-todo" aria-label="add your task">
-            <input type="text" placeholder="Please enter your postcode" name="postcode-search" value="" class="postcode__input">
-            <button class="postcode__submit">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve"><g><path class="fill" d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z"/></g></svg>
+      <form id="add-todo" aria-label="add your task">
+        <input type="text" placeholder="Please enter your postcode" name="postcode-search" value="" class="postcode__input">
+        <button class="postcode__submit">
+              Search
             </button>
-        </form>
+      </form>
     </div>
-</header>
+  </header>
 
-
-<!--What is this for?-->
-<div id="array">
-</div>
-
-<h2>Summary</h2>
-<section id="js-summary" class="summary">
+  <h2>Summary</h2>
+  <section id="js-summary" class="summary">
     <div id="js-duration" class="summary__duration">
+    </div>
+    <div id="js-arrival" class="summary__arrival">
     </div>
     <div id="js-modes" class="summary__modes">
     </div>
@@ -43,24 +42,29 @@
         <i class="wi" id="js-weather__icon"></i>
       </div>
     </div>
-</section>
+  </section>
 
-<section>
+  <section>
     <h2>Journey Details</h2>
-    <div id = "details-container">
+    <div id="details-container">
 
     </div>
-</section>
+  </section>
 
-<section>
+  <!-- Adding new section to include suggestions based on weather types-->
+  <section class="weather__suggestions">
+    <span id="js-weather__suggestions"> </span>
+  </section>
+
+  <section>
     <h2>Map</h2>
-    <div id = "info-container">
-
+    <div id="info-container">
     </div>
-</section>
+  </section>
 
-<script type='text/javascript' src='config.js'></script>
-<script src='./js/logic.js' type='text/javascript'></script>
-<script src='./js/dom.js' type='text/javascript'></script>
+  <script type='text/javascript' src='config.js'></script>
+  <script src='./js/logic.js' type='text/javascript'></script>
+  <script src='./js/dom.js' type='text/javascript'></script>
 </body>
+
 </html>
