@@ -22,15 +22,24 @@ var logic = {
 
 // icons for weather types
 weatherIcons: {
-"clear sky": "wi-night-sleet",
-"few clouds": "wi-day-sunny-overcast",
-"scattered clouds": "wi-day-cloudy",
-"broken clouds": "wi-cloudy",
-"shower rain": "wi-showers",
-"rain": "wi-rain",
-"thunderstorm": "wi-thunderstorm",
-"snow":"wi-snowflake-cold",
-"mist": "wi-fog",
+"01d": "wi-day-sunny",
+"02d": "wi-day-sunny-overcast",
+"03d": "wi-day-cloudy",
+"04d": "wi-cloudy",
+"09d": "wi-showers",
+"10d": "wi-rain",
+"11d": "wi-thunderstorm",
+"13d":"wi-snowflake-cold",
+"50d": "wi-fog",
+"01n": "wi-stars",
+"02n": "wi-night-alt-cloudy",
+"03n": "wi-cloud",
+"04n":"wi-cloudy",
+"09n": "wi-night-alt-showers",
+"10n":"wi-night-alt-rain",
+"11n":"wi-night-alt-storm-showers",
+"13n":"wi-snowflake-cold",
+"50n": "wi-night-fog"
 },
 
     getTravel: function(postcode,callback){

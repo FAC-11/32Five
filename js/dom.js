@@ -78,8 +78,10 @@ var weatherCallback = function(response) {
   var weatherDescriptionNode = document.getElementById('js-weather__description');
   var temp = logic.kToC(response.main.temp);
   weatherTempNode.textContent = Math.round(temp);
-  var weatherDescription = response.weather[0].description;
- var weatherClass= logic.weatherIcons[weatherDescription];
+  var weatherDescription = response.weather[0].descripton;
+  var iconId = response.weather[0].icon;
+ var weatherClass= logic.weatherIcons[iconId];
  document.getElementById("js-weather__icon").classList.add(weatherClass);
+ console.log(weatherDescription);
 
 };
