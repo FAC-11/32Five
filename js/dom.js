@@ -50,8 +50,10 @@ window.onload = function() {
 var weatherCallback = function(response) {
   var weatherTempNode = document.getElementById('js-weather__temp');
   var weatherDescriptionNode = document.getElementById('js-weather__description');
-
   var temp = logic.kToC(response.main.temp);
   weatherTempNode.textContent = Math.round(temp);
-  
+  var weatherDescription = response.weather[0].description;
+ var weatherClass= logic.weatherIcons[weatherDescription];
+ document.getElementById("js-weather__icon").classList.add(weatherClass);
+
 };
