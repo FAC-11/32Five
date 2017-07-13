@@ -1,5 +1,7 @@
 body {
     background: #edf0f1;
+    box-sizing: border-box;
+    padding: 0 50px 0 50px;
 }
 
 #summary-container{
@@ -16,7 +18,7 @@ body {
     float: left;
 }
 
-ul {
+#details-container ul {
     width: 100%;
     float: left;
     padding:0 25px 0 25px;
@@ -30,7 +32,7 @@ ul {
 
 }
 
-ul li {
+#details-container ul li {
     width: 100%;
     min-height: 50px;
     float: left;

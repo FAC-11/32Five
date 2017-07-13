@@ -2,14 +2,27 @@
 var summaryContainer = document.getElementById('js-summary');
 var detailsContainer = document.getElementById("details-container");
 var infoContainer = document.getElementById("map-container");
+var transportIcons = {
+    'walking':"hello",
+    'bus':"hello",
+    'national-rail':"hello",
+    'tube': "hello"
 
+};
 
 // Add postcode and run events
 document.querySelector(".postcode__submit").addEventListener('click', function(e){
     e.preventDefault();
     console.log(document.querySelector(".postcode__input").value);
     var postcode = document.querySelector(".postcode__input").value;
-    logic.getTravel(postcode, travelCallback);
+    if (postcode){
+        logic.getTravel(postcode, travelCallback);
+        logic.getWeather(postcode, function(response){
+            //console.log(response);
+            weatherCallback(response);
+        });
+    }
+
 });
 
 var travelCallback = function(response){
@@ -22,10 +35,8 @@ var travelCallback = function(response){
     summarySpan1.textContent = "Total duration: " + response.journeys[0].duration;
     var summarySpan2 = document.createElement('span');
 
-    var mode = "";
-    response.journeys[0].legs.forEach(function(leg){
-      mode += leg.mode.name;
-    })
+    var mode = [];
+
     summarySpan2.textContent = "Mode(s): " + mode;
     var summarySpan3 = document.createElement('span');
     summarySpan3.textContent = "Weather: ";
@@ -53,6 +64,7 @@ var travelCallback = function(response){
       var detailsSpan1 = document.createElement('span');
       detailsSpan1.textContent = "Duration: " + leg.duration;
       var detailsSpan2 = document.createElement('span');
+
       detailsSpan2.textContent = "Mode: " + leg.mode.name;
       var detailsSpan3 = document.createElement('span');
       detailsSpan3.textContent = "Instructions: " + leg.instruction.summary
@@ -70,18 +82,6 @@ var travelCallback = function(response){
 };
 
 
-//weather changes
-window.onload = function() {
-  var postcodeSubmit = document.querySelector(".postcode__submit");
-  postcodeSubmit.addEventListener("click", function(event){
-    event.preventDefault();
-    var postcodeInput = document.querySelector(".postcode__input").value;
-    logic.getWeather(postcodeInput, function(response){
-      //console.log(response);
-      weatherCallback(response);
-      })
-    })
-  };
 
 var weatherCallback = function(response) {
   var weatherTempNode = document.getElementById('js-weather__temp');
@@ -92,6 +92,20 @@ var weatherCallback = function(response) {
   var iconId = response.weather[0].icon;
  var weatherClass= logic.weatherIcons[iconId];
  document.getElementById("js-weather__icon").classList.add(weatherClass);
- console.log(weatherDescription);
+
 
 };
+
+// var mode = [];
+// response.journeys[0].legs.forEach(function(leg){
+//     mode.push(leg.mode.name) ;
+// });
+//
+// summarySpan2.textContent = "Mode(s): " + mode.forEach(function (x) {
+//         console.log(x);
+//         console.log(transportIcons[x]);
+//
+//         // var icon = document.createElement('img');
+//         // icon.src=transportIcons[x];
+//
+//     });
