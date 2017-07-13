@@ -92,6 +92,7 @@ var weatherCallback = function(response) {
   var iconId = response.weather[0].icon;
  var weatherClass= logic.weatherIcons[iconId];
  document.getElementById("js-weather__icon").classList.add(weatherClass);
+ var weatherSuggestionNode = document.getElementById("js-weather__suggestions");
+ weatherSuggestionNode.textContent = "Don't forgot to bring your " + logic.weatherSuggestions[iconId];
  console.log(weatherDescription);
-
 };
