@@ -17,10 +17,8 @@ var transportIcons = {
 };
 
 // Add postcode and run events
-
 document.querySelector(".postcode__submit").addEventListener('click', function(e) {
   e.preventDefault();
-  console.log(document.querySelector(".postcode__input").value);
   var postcode = document.querySelector(".postcode__input").value;
   if (postcode) {
     logic.getTravel(postcode, travelCallback);
@@ -29,7 +27,6 @@ document.querySelector(".postcode__submit").addEventListener('click', function(e
       weatherCallback(response);
     });
   }
-
 });
 
 var travelCallback = function(response) {
@@ -43,16 +40,17 @@ var travelCallback = function(response) {
   var summaryDurationNode = document.getElementById('js-duration');
   var summaryModeNode = document.getElementById('js-modes');
   var summaryArrivalNode = document.getElementById('js-arrival');
+
   summaryModeNode.textContent = "Modes: ";
   mode.forEach(function(x) {
     var icon = document.createElement('img');
     icon.src = transportIcons[x];
     summaryModeNode.appendChild(icon);
   });
-  summaryDurationNode.textContent = "Total duration: " + response.journeys[0].duration + ' minutes';
+  summaryDurationNode.textContent = response.journeys[0].duration + ' minutes';
       var datefunc = response.journeys[0].arrivalDateTime.split('T')[1];
 
-    summaryArrivalNode.textContent = "Arrival Time: " + datefunc;
+    summaryArrivalNode.textContent = "You'll arrive at " + datefunc;
 
 
   detailsContainer.innerHTML = "";
@@ -85,17 +83,27 @@ var travelCallback = function(response) {
 };
 
 
+//weather changes
+window.onload = function() {
+  var postcodeSubmit = document.querySelector(".postcode__submit");
+  postcodeSubmit.addEventListener("click", function(event){
+    event.preventDefault();
+    var postcodeInput = document.querySelector(".postcode__input").value;
+    logic.getWeather(postcodeInput, function(response){
+      weatherCallback(response);
+      })
+    })
+  };
+
 var weatherCallback = function(response) {
   var weatherTempNode = document.getElementById('js-weather__temp');
   var weatherDescriptionNode = document.getElementById('js-weather__description');
   var temp = logic.kToC(response.main.temp);
-  weatherTempNode.textContent = Math.round(temp);
+  weatherTempNode.textContent = Math.round(temp) + '\xB0C';
   var weatherDescription = response.weather[0].descripton;
   var iconId = response.weather[0].icon;
-  var weatherClass = logic.weatherIcons[iconId];
-  document.getElementById("js-weather__icon").classList.add(weatherClass);
-  var weatherSuggestionNode = document.getElementById("js-weather__suggestions");
-  weatherSuggestionNode.textContent = "Don't forgot to bring your " + logic.weatherSuggestions[iconId];
-  console.log(weatherDescription);
-
+ var weatherClass= logic.weatherIcons[iconId];
+ document.getElementById("js-weather__icon").classList.add(weatherClass);
+ var weatherSuggestionNode = document.getElementById("js-weather__suggestions");
+ weatherSuggestionNode.textContent = "Don't forgot to bring your " + logic.weatherSuggestions[iconId];
 };

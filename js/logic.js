@@ -71,7 +71,6 @@ var logic = {
     return kelvin - 273.15;
   },
 
-
   // constructing the entered postcode into correct api request
   weatherUrl: function(postcode) {
     var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
@@ -93,9 +92,6 @@ var logic = {
   }
 };
 
-
-
 if (typeof module !== 'undefined') {
   module.exports = (logic);
-
 }
