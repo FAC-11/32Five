@@ -19,6 +19,7 @@ var transportIcons = {
 // Add postcode and run events
 document.querySelector(".postcode__submit").addEventListener('click', function(e) {
   e.preventDefault();
+  document.getElementById("js-summary").classList.add("summary-click")
   var postcode = document.querySelector(".postcode__input").value;
   if (postcode) {
     logic.getTravel(postcode, travelCallback);
