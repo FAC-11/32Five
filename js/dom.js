@@ -19,6 +19,7 @@ var transportIcons = {
 // Add postcode and run events
 document.querySelector(".postcode__submit").addEventListener('click', function(e) {
   e.preventDefault();
+  document.getElementById("js-summary").classList.add("summary-click")
   var postcode = document.querySelector(".postcode__input").value;
   if (postcode) {
     logic.getTravel(postcode, travelCallback);
@@ -42,9 +43,9 @@ var travelCallback = function(response) {
   var summaryArrivalNode = document.getElementById('js-arrival');
 
   summaryModeNode.textContent = "Modes: ";
-  mode.forEach(function(x) {
+  mode.forEach(function(singleMode) {
     var icon = document.createElement('img');
-    icon.src = transportIcons[x];
+    icon.src = transportIcons[singleMode];
     summaryModeNode.appendChild(icon);
   });
   summaryDurationNode.textContent = response.journeys[0].duration + ' minutes';
