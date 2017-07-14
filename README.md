@@ -29,7 +29,7 @@ In order to keep our API keys secret we created an 'config.js' file where we
 stored our API keys as global variables. We added a reference to this
 javascript file in our index.html file, above the rest of our Javascript files:
 ```
-<script type='text/javascript' src='config.js'></script>
+<script type='text/javascript' src='js/config.js'></script>
 <script type='text/javascript' src='logic.js'></script>
 ...
 ```
