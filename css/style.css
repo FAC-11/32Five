@@ -12,12 +12,13 @@ header {
 body {
     background-color: #F3FFDA;
     font-size: 1.5rem;
+    padding: 0 50px 0 50px;
+    font-family: 'Hammersmith One', sans-serif;
 }
 form {
     display: flex;
     box-sizing: border-box;
-    padding: 0 50px 0 50px;
-    font-family: 'Hammersmith One', sans-serif;
+
 }
 .postcode__submit {
     border: none;
@@ -37,7 +38,7 @@ form {
 }
 .summary {
     padding: 1rem;
-    text-align: center;
+
 }
 .summary__item {
     margin: 1rem 0;
@@ -59,9 +60,10 @@ form {
     float: left;
 }
 
-#details-container ul, .summary {
+#details-container ul, .flex-container {
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     font-size: 18px;
     width: 100%;
@@ -96,4 +98,11 @@ img {
     height: 50px;
     width: 50px;
     text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
