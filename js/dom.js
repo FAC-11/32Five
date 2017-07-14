@@ -42,9 +42,9 @@ var travelCallback = function(response) {
   var summaryArrivalNode = document.getElementById('js-arrival');
 
   summaryModeNode.textContent = "Modes: ";
-  mode.forEach(function(x) {
+  mode.forEach(function(singleMode) {
     var icon = document.createElement('img');
-    icon.src = transportIcons[x];
+    icon.src = transportIcons[singleMode];
     summaryModeNode.appendChild(icon);
   });
   summaryDurationNode.textContent = response.journeys[0].duration + ' minutes';
