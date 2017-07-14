@@ -115,6 +115,16 @@ form {
     box-sizing: border-box;
 }
 
+.weather__suggestions {
+  background-color: #ff6f59;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+
+}
+
 
 img {
     height: 50px;
@@ -134,4 +144,3 @@ img {
         flex-direction: column;
     }
 }
-
