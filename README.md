@@ -37,7 +37,7 @@ and then added the 'config.js' file to our gitignore file.
 
 If you'd like to run our site locally, you will need to get your own API keys
 from TfL and OpenWeatherMap, and create your own
-'config.js' in the projects root directory. This should contain two global variables:
+'config.js' in the projects 'js' directory. This should contain two global variables:
 ```
 var weatherApiKey = <your-key>;
 var travelApiKey = <your-key>;

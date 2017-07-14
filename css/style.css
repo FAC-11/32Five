@@ -1,28 +1,41 @@
 * {
     box-sizing: border-box;
+    font-family: 'Hammersmith One', sans-serif;
 }
 h1, h2, h3 {
-    color: darkslategrey;
+    color: white;
+    text-align: center;
+}
+h1{
+  font-size: 4rem;
 }
 header {
     padding: 1rem;
     margin-bottom: 2rem;
     text-align: center;
+    background-color: #086788
 }
 body {
-    background-color: #F3FFDA;
+    background-color: white;
     font-size: 1.5rem;
     padding: 0 50px 0 50px;
     font-family: 'Hammersmith One', sans-serif;
 }
+
+.form-section{
+  background-color: #086788;
+}
+
 form {
     display: flex;
+    justify-content: center;
     box-sizing: border-box;
+    margin-bottom: 2rem;
 
 }
 .postcode__submit {
     border: none;
-    background-color: #4eab8e;
+    background-color: #ff6f59;
     color: #fff;
     border-radius: 5px;
     height: 3rem;
@@ -38,12 +51,15 @@ form {
 }
 .summary {
     padding: 1rem;
+        background-color: #ff5376;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 .summary__item {
     margin: 1rem 0;
     padding: 2rem 0;
-    border-top: 1px solid lightgrey;
     line-height: 3rem;
 }
 #summary-container{
@@ -58,7 +74,9 @@ form {
 #details-container{
     width: 100%;
     float: left;
+
 }
+
 
 #details-container ul, .flex-container {
 
