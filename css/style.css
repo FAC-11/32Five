@@ -4,6 +4,7 @@
 }
 h1, h2, h3 {
     color: white;
+    text-align: center;
 }
 h1{
   font-size: 4rem;
@@ -17,6 +18,8 @@ header {
 body {
     background-color: white;
     font-size: 1.5rem;
+    padding: 0 50px 0 50px;
+    font-family: 'Hammersmith One', sans-serif;
 }
 
 .form-section{
@@ -30,6 +33,7 @@ form {
     padding: 0 50px 0 50px;
     font-family: 'Hammersmith One', sans-serif;
     margin-bottom: 2rem;
+
 }
 .postcode__submit {
     border: none;
@@ -49,12 +53,15 @@ form {
 }
 .summary {
     padding: 1rem;
-    text-align: center;
+        background-color: #ff5376;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
 .summary__item {
     margin: 1rem 0;
     padding: 2rem 0;
-    border-top: 1px solid lightgrey;
     line-height: 3rem;
 }
 #summary-container{
@@ -69,11 +76,14 @@ form {
 #details-container{
     width: 100%;
     float: left;
+
 }
 
-#details-container ul, .summary {
+
+#details-container ul, .flex-container {
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     font-size: 18px;
     width: 100%;
@@ -108,4 +118,11 @@ img {
     height: 50px;
     width: 50px;
     text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
